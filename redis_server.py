@@ -1,5 +1,7 @@
 import lithops
+import sys
 import os
+import time
 import subprocess as sp
 from lithops import Storage
 
@@ -49,10 +51,20 @@ def delete_files_from_redis(keys_list,redis):
 
 
 if __name__ == "__main__":
+   wait = int(sys.argv[1]) 
    redis = Storage(backend='redis')
+   while (len(redis.list_keys('')) < wait):
+       time.sleep(1)
    keys_list, file_list = download_files_to_local('',redis)
    splits = group_by_fasta(file_list)
+
+   file_path = 'redis_log.txt'
+   sys.stdout = open(file_path, "w")
    print(splits)
    print(execute_binary_reduce(splits,redis))
    print(delete_files_from_local(file_list,splits))
    print(delete_files_from_redis(keys_list,redis))
+   sys.stdout.close()
+   with open(file_path, 'r') as f:
+       redis.put_object('',file_path,f.read())
+   os.remove(file_path)
