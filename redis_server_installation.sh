@@ -29,7 +29,7 @@ systemctl status --no-pager redis
 # 2. Dependencies installation
 apt install -y python3-pip
 apt install -y unzip
-sudo -k # er remove sudoers permissions we want the following pieces of software able to be executed by everyone
+sudo -k # remove sudoers permissions we want the following pieces of software able to be executed by everyone
 
 # 3. Lithops installation and test
 pip install lithops
