@@ -24,7 +24,7 @@ sed -i "s/^supervised no/supervised systemd/" /etc/redis/redis.conf
 sed -i "s/^bind 127.0.0.1/# bind 127.0.0.1/" /etc/redis/redis.conf
 # Restart the service
 systemctl restart redis.service
-systemctl status redis
+systemctl status --no-pager redis
 
 # 2. LITHOPS
 apt install -y python3-pip
