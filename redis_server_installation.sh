@@ -28,6 +28,7 @@ systemctl status --no-pager redis
 
 # 2. LITHOPS
 apt install -y python3-pip
+sudo -k
 pip install lithops
 lithops test
 # After restart (needed for .lithops/ to be created) we will configure lithops config
