@@ -26,23 +26,21 @@ sed -i "s/^bind 127.0.0.1/# bind 127.0.0.1/" /etc/redis/redis.conf
 systemctl restart redis.service
 systemctl status --no-pager redis
 
-# 2. LITHOPS
+# 2. Dependencies installation
 apt install -y python3-pip
-sudo -k
+apt install -y unzip
+sudo -k # er remove sudoers permissions we want the following pieces of software able to be executed by everyone
+
+# 3. Lithops installation and test
 pip install lithops
 lithops test
-# After restart (needed for .lithops/ to be created) we will configure lithops config
 
-# 3. AWS dependencies (aws-cli and boto3)
-apt install -y unzip
+# 4. AWS dependencies (aws-cli and boto3)
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 ./aws/install
 
 python3 -m pip install boto3
-
-# 4. Test the installation of lithops
-lithops test
 
 # 5. Create lithops config file
 echo "
@@ -81,7 +79,7 @@ redis:
     password: ${password}
 " > .lithops/config
 
-# 6. User task
+# 6. User tasks
 echo "
 PLEASE ACCESS LITHOPS CONFIG FILE AND FILL THE EMPTY FIELDS
 In the command prompt:
@@ -96,11 +94,12 @@ PLEASE CONFIGURE NOW THE AWS CLIENT
 In the command prompt:
 aws configure
 (fill the corresponding fields)
+
 "
 
 echo"
-END
+End of the installation script, please read carefully the previous lines to end the configuration of the Virtual Machine
 "
-# END
+
 
 
