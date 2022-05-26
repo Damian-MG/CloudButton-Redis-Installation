@@ -43,8 +43,7 @@ unzip awscliv2.zip
 python3 -m pip install boto3
 
 # 5. Create lithops config file
-echo "
-lithops:
+echo "lithops:
     backend: aws_lambda
     storage: aws_s3
     #data_cleaner: <True/False>
@@ -76,8 +75,7 @@ aws_lambda:
 redis:
     host: localhost
     port: 6379
-    password: ${password}
-" > .lithops/config
+    password: ${password}" > .lithops/config
 
 # 6. User tasks
 echo "
