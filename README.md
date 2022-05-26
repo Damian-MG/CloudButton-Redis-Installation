@@ -1,6 +1,10 @@
 # CloudButton-Redis-Installation
 
 Clone this repository and start configuring your VM
+After cloning the repository move all its content to your user directory
+    ```bash
+    $ mv CloudButton-Redis-Installation/* /home/user/
+    ```
 
 ## 1. Execute redis_installation_1.sh
     ```bash
