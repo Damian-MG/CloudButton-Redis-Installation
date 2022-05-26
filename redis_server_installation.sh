@@ -32,15 +32,15 @@ apt install -y unzip
 sudo -k # remove sudoers permissions we want the following pieces of software able to be executed by everyone
 
 # 3. Lithops installation and test
-pip install lithops
+sudo -u $(logname) pip install lithops
 lithops test
 
 # 4. AWS dependencies (aws-cli and boto3)
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
-./aws/install
+sudo -u $(logname) ./aws/install
 
-python3 -m pip install boto3
+sudo -u $(logname) python3 -m pip install boto3
 
 # 5. Create lithops config file
 echo "lithops:
