@@ -43,6 +43,7 @@ sudo -u $(logname) ./aws/install
 sudo -u $(logname) python3 -m pip install boto3
 
 # 5. Create lithops config file
+sudo -u $(logname) lithops test
 echo "lithops:
     backend: aws_lambda
     storage: aws_s3
