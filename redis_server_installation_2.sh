@@ -26,7 +26,7 @@ if [ $(id -u) != "0" ]; then
 
 	# 3. Lithops test again in case .lithops/ folder hasn't been created
 	lithops test
-	mkdir .lithops/
+	mkdir -p .lithops/
 
 	# 4. Create Lithops config file
 	echo "lithops:
