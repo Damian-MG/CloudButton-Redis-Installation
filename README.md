@@ -9,9 +9,15 @@ After cloning the repository move all its content to your user directory
 
 ## 1. Execute redis_installation_1.sh
     ```bash
-    $ sudo ./redis_server_installation.sh redis_password
+    $ sudo ./redis_server_installation_1.sh redis_password
     ```
-## 2. Fill the the configs suggested by redis_server_installation.sh
+    
+## 2. Execute redis_installation_2.sh
+    ```bash
+    $ ./redis_server_installation_2.sh redis_password
+    ```
+    
+## 3. Fill the the configs suggested by redis_server_installation.sh
     ```bash
     PLEASE ACCESS LITHOPS CONFIG FILE AND FILL THE EMPTY FIELDS
     In the command prompt:
