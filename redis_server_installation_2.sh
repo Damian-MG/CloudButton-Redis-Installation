@@ -8,6 +8,13 @@ password=$1
 
 # Superuser check
 if [ $(id -u) != "0" ]; then
+
+	# Add user binaries to the PATH
+	export PATH=/home/$(logname)/.local/bin:$PATH
+	
+	# 0. Install boto3
+	python3 -m pip install boto3
+	
 	# 1. Lithops installation and test
 	pip3 install lithops
 	lithops test
@@ -17,14 +24,12 @@ if [ $(id -u) != "0" ]; then
 	unzip awscliv2.zip
 	sudo ./aws/install
 
-	#python3 -m pip install boto3
-
 	# 3. Lithops test again in case .lithops/ folder hasn't been created
 	lithops test
 	mkdir .lithops/
 
 	# 4. Create Lithops config file
-	echo "lithops:	
+	echo "lithops:
     backend: aws_lambda
     storage: aws_s3
     #data_cleaner: <True/False>
