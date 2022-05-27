@@ -9,7 +9,7 @@ password=$1
 # Superuser check
 if [ $(id -u) != "0" ]; then
 	# 1. Lithops installation and test
-	pip install lithops
+	python3 -m pip install lithops
 	lithops test
 
 	# 2. AWS dependencies (aws-cli and boto3)
@@ -17,11 +17,11 @@ if [ $(id -u) != "0" ]; then
 	unzip awscliv2.zip
 	./aws/install
 
-	python3 -m pip install boto3
+	#python3 -m pip install boto3
 
 	# 3. Lithops test again in case .lithops/ folder hasn't been created
 	lithops test
-	lithops test
+	mkdir .lithops/
 
 	# 4. Create Lithops config file
 	echo "lithops:
