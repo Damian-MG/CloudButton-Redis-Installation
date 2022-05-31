@@ -20,15 +20,19 @@ After cloning the repository move all its content to your user directory
 ## 3. Fill the the configs suggested by redis_server_installation_2.sh
     ```bash
     PLEASE ACCESS LITHOPS CONFIG FILE AND FILL THE EMPTY FIELDS
-    In the command prompt:
-    cd .lithops/
-    vi config
+    In the command prompt from /home/$(logname):
+    $ vi .lithops/config
+            (fill the corresponding fields)
     ('i' for insert mode, ':wq' to save and exit)
     ```
     
      ```bash
     PLEASE CONFIGURE NOW THE AWS CLIENT
     In the command prompt:
-    aws configure
-    (fill the corresponding fields)
+    $ aws configure
+            AWS Access Key ID [None]: <Access Key ID>
+            AWS Secret Access Key [None]: <Secret Access Key>
+            Default region name [None]: <Region name>
+            Default output format [None]: json
+            (fill the corresponding fields)
     ```   
