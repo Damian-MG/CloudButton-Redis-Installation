@@ -13,7 +13,7 @@ if [ $(id -u) != "0" ]; then
 	export PATH=/home/$(logname)/.local/bin:$PATH
 	
 	# 0. Install boto3
-	python3 -m pip install boto3
+	# python3 -m pip install boto3
 	
 	# 1. Lithops installation and test
 	pip3 install lithops
