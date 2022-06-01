@@ -238,6 +238,10 @@ In the event that disk storage is needed, the necessary gigabytes of storage can
 1 x * GiB gp2 root volume (Example for AWS EC2)
 ```
 
+### 1.6 Static IP
+If you want your virtual machine to have a fixed/static IP, you can create a new elastic IP (in the case of AWS) and assign it to your recently created virtual machine.
+
+
 ## 2. Installation and Configuration of software used in the Virtual Machine
 Clone this repository and start configuring your VM
 After cloning the repository move all its content to your user directory
